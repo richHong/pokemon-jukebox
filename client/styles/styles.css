@@ -6,6 +6,17 @@
 }
 #container {
   margin-left: 20px;
+  font-family: 'Patrick Hand SC', cursive;
+}
+#battle{
+  width: 150px;
+  height: 50px;
+}
+#get {
+  position: relative;
+  left: 45.5%;
+  height: 30px;
+  margin-bottom: 25px;
 }
 h3{
   text-align: center;
@@ -16,12 +27,7 @@ img{
 }
 h1{
   text-align: center;
-}
-button {
-  position: relative;
-  left: 45.5%;
-  height: 30px;
-  margin-bottom: 25px;
+  font-size: 50px
 }
 p {
   text-align: center;
