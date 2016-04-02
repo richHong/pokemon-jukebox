@@ -1,29 +1,52 @@
-#pokemon {
+.pokemon {
   float: left;
   border: solid 1px black;
-  border-radius: 5px;
-  width: 150px;
+  border-radius: 10px;
+  width: 154px;
+  background-color: yellow;
+  border-width: 2px;
+  border-color: #3366FF;
+  font-size: 25px;
 }
-#container {
-  margin-left: 20px;
-  font-family: 'Patrick Hand SC', cursive;
-}
-#battle{
+.battle {
   width: 150px;
   height: 50px;
+  background-color: red;
+  font-family: 'Patrick Hand SC', cursive;
+  font-size: 20px;
+  border-radius: 10px;
+}
+#container {
+  font-family: 'Patrick Hand SC', cursive;
+  background-color: red;
 }
 #get {
+  font-family: 'Patrick Hand SC', cursive;
+  font-size: 20px;
+  border-color: #3366FF;
+  background-color: yellow;
+  color:blue;
   position: relative;
-  left: 45.5%;
-  height: 30px;
+  left: 47%;
+  height: 50px;
   margin-bottom: 25px;
+  border-radius: 10px;
+  border-width: 5px;
 }
-h3{
+h3 {
   text-align: center;
 }
 img{
   display: block;
   margin: auto;
+}
+.pic:hover {
+  -webkit-transform: scale(1.75);
+  -moz-transform: scale(1.75);
+  -o-transform: scale(1.75);
+  transform: scale(1.75);
+  transition: all 0.3s;
+  -webkit-transition: all 0.3s;
 }
 h1{
   text-align: center;
@@ -31,4 +54,7 @@ h1{
 }
 p {
   text-align: center;
+}
+body {
+  background-color: #3366FF;
 }

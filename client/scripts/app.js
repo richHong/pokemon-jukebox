@@ -12,10 +12,18 @@ var Pokemon = React.createClass({
           compareName = 'nidoran';
         } else if (that.props.name === 'diglett'){
           compareName = 'diglett1';
-        } else if (that.prop.name === 'mankey'){
+        } else if (that.props.name === 'mankey'){
           compareName = 'mankey2';
+        } else if (that.props.name === 'primeape'){
+          compareName = 'primeape4';
+        } else if (that.props.name === 'farfetchd'){
+          compareName = "farfetch'd";
+        } else if (that.props.name === 'vulpix'){
+          compareName = 'vulpix!';
+        } else if (that.props.name === 'mr-mime'){
+          compareName = 'mr. mime';
         }
-        if (trackName === compareName || trackName === '0'+that.props.id+' - '+compareName) {
+        if (trackName === compareName || trackName === '0'+that.props.id+' - '+compareName || that.props.id+' - '+compareName) {
           SC.oEmbed(track.uri, {maxheight:81, auto_play:true}, document.getElementById('player'));
         }
       }, this)
@@ -23,11 +31,11 @@ var Pokemon = React.createClass({
   },
   render:function(){
     return (
-          <div id="pokemon">
+          <div className="pokemon">
             <h3>{this.props.name}</h3>
-            <img src={this.props.img}/>
+            <img className="pic" src={this.props.img}/>
             <p>{this.props.id}</p>
-            <button id="battle" onClick={this.getTrack}>Battle Cry!</button>
+            <button className="battle" onClick={this.getTrack}>Battle Cry!</button>
           </div>
       )   
   }
@@ -35,7 +43,7 @@ var Pokemon = React.createClass({
 
 var Pokedex = React.createClass({
   getInitialState: function(){
-      var that = this;
+    var that = this;
     $.getJSON('http://api.soundcloud.com/resolve?url=https://soundcloud.com/richard-hong-111605706/sets/pokemon&client_id=a5b75fc5d7251916a7c1e16fb662e932', function(data){
       _.each(data.tracks, function(track){
         if (track.title.toLowerCase() === 'Pokemon Theme Song FULL'.toLowerCase()){
@@ -54,9 +62,7 @@ var Pokedex = React.createClass({
   getPokemon:function(){
     var pokeList = [];
     var that = this
-    var n = $('#textbox').val()
-    console.log(n);
-    for (var i = 1; i < n+1; i++){
+    for (var i = 1; i < 152; i++){
       $.getJSON('http://pokeapi.co/api/v2/pokemon-form/'+i, function(pokemon){
         pokeList.push(pokemon);
         that.setState({pokeList:pokeList})
@@ -68,11 +74,10 @@ var Pokedex = React.createClass({
     return (
       <div>
         <div>
-          <h1>Pokedex</h1>
-          <input type="text" id="textbox" placeholder="How Many Pokemon?"/>
+          <img src="http://vignette3.wikia.nocookie.net/logopedia/images/e/e5/Pokemon_logo.png/revision/latest?cb=20120128115827"/>
           <button id="get" onClick={this.getPokemon}>Get Pokemon!</button>
         </div>
-        <div>
+        <div id="box">
           {this.state.pokeList.map(function(pokemon, i){
               return (
                 <Pokemon
