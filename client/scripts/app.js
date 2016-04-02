@@ -35,7 +35,7 @@ var Pokemon = React.createClass({
           <div className="pokemon">
             <h3>{this.props.name}</h3>
             <img className="pic" src={this.props.img}/>
-            <p>{this.props.id}</p>
+            <p>#{this.props.id}</p>
             <button className="battle" onClick={this.getTrack}>Battle Cry!</button>
           </div>
       )   
@@ -44,18 +44,21 @@ var Pokemon = React.createClass({
 
 var Pokedex = React.createClass({
   getInitialState: function(){
+    this.loadThemeSong();
+    var pokeList = [];
+    return {
+      pokeList:pokeList
+    }
+  },
+  loadThemeSong:function(){
     var that = this;
     $.getJSON('http://api.soundcloud.com/resolve?url=https://soundcloud.com/richard-hong-111605706/sets/pokemon&client_id=a5b75fc5d7251916a7c1e16fb662e932', function(data){
       _.each(data.tracks, function(track){
         if (track.title.toLowerCase() === 'Pokemon Theme Song FULL'.toLowerCase()){
           SC.oEmbed(track.uri, {maxheight:81, auto_play:false}, document.getElementById('player'));
         }
-      }, this)
-    })
-    var pokeList = [];
-    return {
-      pokeList:pokeList
-    }
+      }, this);
+    });
   },
   sortPokemon:function(){
     this.state.pokeList.sort(function(a,b){return a.id - b.id});
@@ -67,7 +70,7 @@ var Pokedex = React.createClass({
     for (var i = 1; i < number; i++){
       $.getJSON('http://pokeapi.co/api/v2/pokemon-form/'+i, function(pokemon){
         pokeList.push(pokemon);
-        that.setState({pokeList:pokeList})
+        that.setState({pokeList:pokeList});
         that.sortPokemon();
       }, this);
     }
@@ -76,7 +79,7 @@ var Pokedex = React.createClass({
     return (
       <div>
         <div>
-          <img id="logo" src="http://vignette3.wikia.nocookie.net/logopedia/images/e/e5/Pokemon_logo.png/revision/latest?cb=20120128115827"/>
+          <img id="logo" src="http://vignette3.wikia.nocookie.net/logopedia/images/e/e5/Pokemon_logo.png/revision/latest?cb=20120128115827" onClick={this.loadThemeSong}/>
           <select id="select">
             <option value="11">10</option>
             <option value="21">20</option>
