@@ -16,6 +16,17 @@
   font-size: 20px;
   border-radius: 10px;
 }
+.pic:hover {
+  -webkit-transform: scale(1.75);
+  -moz-transform: scale(1.75);
+  -o-transform: scale(1.75);
+  transform: scale(1.75);
+  transition: all 0.3s;
+  -webkit-transition: all 0.3s;
+}
+#logo{
+  width: 500px;
+}
 #container {
   font-family: 'Patrick Hand SC', cursive;
   background-color: red;
@@ -27,11 +38,25 @@
   background-color: yellow;
   color:blue;
   position: relative;
-  left: 47%;
+  left: 43%;
   height: 50px;
   margin-bottom: 25px;
   border-radius: 10px;
   border-width: 5px;
+}
+select{
+    font-family: 'Patrick Hand SC', cursive;
+    font-size: 20px;
+    border-color: #3366FF;
+    background-color: yellow;
+    color:blue;
+    left:40%;
+    height: 50px;
+    margin-bottom: 25px;
+    border-radius: 10px;
+    border-width: 5px;
+    position: relative;
+    width: 100px;
 }
 h3 {
   text-align: center;
@@ -39,14 +64,6 @@ h3 {
 img{
   display: block;
   margin: auto;
-}
-.pic:hover {
-  -webkit-transform: scale(1.75);
-  -moz-transform: scale(1.75);
-  -o-transform: scale(1.75);
-  transform: scale(1.75);
-  transition: all 0.3s;
-  -webkit-transition: all 0.3s;
 }
 h1{
   text-align: center;
